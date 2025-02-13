@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+.album {
+    margin-top: 20px;
+}
+img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+a {
+    color: #1DB954;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

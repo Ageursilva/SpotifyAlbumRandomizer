@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Gerador de Álbuns Aleatórios</title>
+</head>
+<body>
+    <h1>Gerador de Álbuns Aleatórios</h1>
+
+    {% if not logged_in %}
+    <p><a href="{{ url_for('login') }}">Login com Spotify</a></p>
+    {% else %}
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    <form method="POST" action="{{ url_for('index') }}">
+        <button type="submit">Gerar Álbum Aleatório</button>
+    </form>
+
+    {% if album %}
+    <div class="album">
+        <h2>{{ album.name }}</h2>
+        <p>Artista: {{ album.artists[0].name }}</p>
+        {% if album.images %}
+        <img src="{{ album.images[0].url }}" alt="Capa do Álbum">
+        {% endif %}
+        <p><a href="{{ album.external_urls.spotify }}" target="_blank">Ouvir no Spotify</a></p>
+    </div>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
